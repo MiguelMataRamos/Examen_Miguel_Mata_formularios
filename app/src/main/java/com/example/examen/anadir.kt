@@ -117,7 +117,7 @@ class anadir : AppCompatActivity() {
                     "Tipo -> $tipo\n" +
                     "---------------------"
             var intent = Intent(this,ActivityVerBinding::class.java)
-            intent.putExtra("nombre",nombre)
+            intent.putExtra("texto",texto)
             intent.putExtra("entrenador",entrena)
             intent.putExtra("estatura",estatura)
             intent.putExtra("fecha",fecha)
