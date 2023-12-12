@@ -110,6 +110,11 @@ class anadir : AppCompatActivity() {
         }
 
         if (bnombre && bentrena && bestatura && bfecha && btipo){
+            var texto = "Nombre -> $nombre/n" +
+                    "Entrenador -> $entrena/n" +
+                    "Estatura -> $estatura/n" +
+                    "Fecha -> $fecha/n" +
+                    "Tipo -> $tipo"
             var intent = Intent(this,ActivityVerBinding::class.java)
             intent.putExtra("nombre",nombre)
             intent.putExtra("entrenador",entrena)
