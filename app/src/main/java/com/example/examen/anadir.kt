@@ -6,16 +6,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.core.text.isDigitsOnly
 import com.example.examen.databinding.ActivityAnadirBinding
+import com.example.examen.databinding.ActivityVerBinding
 import com.google.android.material.datepicker.MaterialDatePicker
 
 class anadir : AppCompatActivity() {
 
     private lateinit var bind: ActivityAnadirBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         bind = ActivityAnadirBinding.inflate(layoutInflater)
+        var tipos = listOf("Fuego","Agua","Tierra","Barro")
+        var adapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,tipos)
+        bind.tipos.setAdapter(adapter)
+
+        super.onCreate(savedInstanceState)
+
 
         setContentView(bind.root)
 
@@ -26,8 +33,6 @@ class anadir : AppCompatActivity() {
 
         bind.fecha.setOnClickListener {
             var builder = MaterialDatePicker.Builder.datePicker()
-            val calendar = Calendar.getInstance()
-            builder.setMaxDate(calendar.timeInMillis)
             var piker = builder.build()
 
             piker.addOnPositiveButtonClickListener {
@@ -91,13 +96,26 @@ class anadir : AppCompatActivity() {
         if (fecha.isNullOrBlank()){
             bind.fecha.error = "No puedes dejar este campo vacio"
         }else{
-
-
+            bfecha = true
 
         }
 
-        if (bnombre && bentrena && bestatura && bfecha){
+        var btipo = false
+        var tipo = bind.tipos.text.toString()
+        if (tipo.isNullOrBlank()){
+            bind.tipos.error = "No puedes dejar este campo vacio"
+        }else{
+            btipo = true
+            bind.tipos.error = null
+        }
 
+        if (bnombre && bentrena && bestatura && bfecha && btipo){
+            var intent = Intent(this,ActivityVerBinding::class.java)
+            intent.putExtra("nombre",nombre)
+            intent.putExtra("entrenador",entrena)
+            intent.putExtra("estatura",estatura)
+            intent.putExtra("fecha",fecha)
+            intent.putExtra("tipo",tipo)
         }
 
 
