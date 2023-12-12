@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".anadir">
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/atras"
+            android:layout_weight="2"
+            android:src="@drawable/back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cabecera"
+            android:text="Añadir Pokemon"
+            android:layout_weight="9"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/lnombre"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintEnd_toStartOf="@id/str_nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/nombre"
+            android:inputType="textPersonName"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/lnombre"
+        app:layout_constraintTop_toTopOf="@+id/lnombre"
+        app:layout_constraintBottom_toBottomOf="@+id/lnombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/str_nombre"
+        android:text="Nombre"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/lentrenador"
+        app:layout_constraintTop_toBottomOf="@+id/lnombre"
+        app:layout_constraintEnd_toStartOf="@id/str_entrenador"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/entrenador"
+            android:inputType="textPersonName"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/lentrenador"
+        app:layout_constraintTop_toTopOf="@+id/lentrenador"
+        app:layout_constraintBottom_toBottomOf="@+id/lentrenador"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/str_entrenador"
+        android:text="Entrenador"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ltiposestatura"
+        app:layout_constraintTop_toBottomOf="@id/lentrenador"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/str_tipos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Tipos"
+
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ltipo"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toBottomOf="@id/str_tipos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/lestatura"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+
+            >
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/tipos"
+                android:hint="Tipos"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/str_estatura"
+            app:layout_constraintStart_toEndOf="@id/ltipo"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Estatura"
+
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/lestatura"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toBottomOf="@id/str_estatura"
+            app:layout_constraintStart_toEndOf="@+id/ltipo"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/estatura"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
