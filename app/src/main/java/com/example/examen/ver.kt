@@ -17,5 +17,9 @@ class ver : AppCompatActivity() {
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        var texto = bind.texto.toString()
+
+
     }
 }
